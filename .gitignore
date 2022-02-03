@@ -108,3 +108,6 @@ package-lock.json
 
 # docker files
 /api/docker-compose.yml
+
+# ide
+.vscode/
