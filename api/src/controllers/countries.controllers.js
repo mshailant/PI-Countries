@@ -1,6 +1,7 @@
 const {
   getCountries,
   getCountryById,
+  getCountriesByName,
 } = require("../services/countries.services");
 
 const getCountriesController = async (req, res) => {
@@ -27,4 +28,22 @@ const getCountryByIdController = async (req, res) => {
   }
 };
 
-module.exports = { getCountriesController, getCountryByIdController };
+const getCountriesByNameController = async (req, res) => {
+  try {
+    const { name } = req.params;
+    const countries = await getCountriesByName(name);
+    if (!countries) {
+      throw new Error("Country not found");
+    }
+    res.json(countries);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  getCountriesController,
+  getCountryByIdController,
+  getCountriesByNameController,
+};

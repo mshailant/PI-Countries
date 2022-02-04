@@ -62,4 +62,28 @@ const getCountryById = async (id) => {
   }
 };
 
-module.exports = { saveCountriesFromApi, getCountries, getCountryById };
+const getCountriesByName = async (name) => {
+  try {
+    const countries = await Country.findAll({
+      where: {
+        name: {
+          [Op.like]: `%${name}%`,
+        },
+      },
+      attributes: ["id", "name", "image", "continent"],
+    });
+    if (!countries) {
+      throw new Error("Country not found");
+    }
+    return countries;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = {
+  saveCountriesFromApi,
+  getCountries,
+  getCountryById,
+  getCountriesByName,
+};
