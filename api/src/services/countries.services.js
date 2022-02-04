@@ -38,4 +38,4 @@ const getCountries = async () => {
   }
 };
 
-module.exports = { saveCountriesFromApi };
+module.exports = { saveCountriesFromApi, getCountries };
