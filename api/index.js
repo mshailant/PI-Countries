@@ -19,13 +19,17 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
+const {
+  saveCountriesFromApi,
+} = require("./src/services/countries.services.js");
 
 // Syncing all the models at once.
 conn
   .sync({ force: true })
   .then(() => {
     server.listen(3001, () => {
-      console.log("%s listening at 3001"); // eslint-disable-line no-console
+      console.log("server listening at 3001"); // eslint-disable-line no-console
     });
   })
+  .then(async () => await saveCountriesFromApi())
   .catch((e) => console.log(e));
