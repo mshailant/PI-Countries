@@ -40,4 +40,26 @@ const getCountries = async () => {
   }
 };
 
-module.exports = { saveCountriesFromApi, getCountries };
+const getCountryById = async (id) => {
+  try {
+    const country = await Country.findByPk(id.toUpperCase(), {
+      attributes: [
+        "id",
+        "name",
+        "image",
+        "continent",
+        "capital",
+        "population",
+        "area",
+      ],
+    });
+    if (!country) {
+      throw new Error("Country not found");
+    }
+    return country;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = { saveCountriesFromApi, getCountries, getCountryById };
