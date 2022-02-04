@@ -31,7 +31,9 @@ const saveCountriesFromApi = async () => {
 
 const getCountries = async () => {
   try {
-    const countries = await Country.findAll();
+    const countries = await Country.findAll({
+      attributes: ["id", "name", "image", "continent"],
+    });
     return countries;
   } catch (error) {
     console.log(error);
