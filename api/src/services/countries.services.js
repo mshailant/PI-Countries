@@ -1,4 +1,4 @@
-const { Country } = require("../db");
+const { Country, Activity } = require("../db");
 const { Op } = require("sequelize");
 const axios = require("axios");
 
@@ -52,6 +52,12 @@ const getCountryById = async (id) => {
         "population",
         "area",
       ],
+      include: [
+        {
+          model: Activity,
+          attributes: ["id", "name", "difficulty", "duration", "season"],
+        },
+      ],
     });
     if (!country) {
       throw new Error("Country not found");
@@ -67,7 +73,7 @@ const getCountriesByName = async (name) => {
     const countries = await Country.findAll({
       where: {
         name: {
-          [Op.like]: `%${name}%`,
+          [Op.iLike]: `%${name}%`,
         },
       },
       attributes: ["id", "name", "image", "continent"],
