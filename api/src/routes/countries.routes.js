@@ -8,6 +8,5 @@ const {
 
 router.get("/", getCountriesController);
 router.get("/:id", getCountryByIdController);
-router.get("/:name", getCountriesByNameController);
 
 module.exports = router;
