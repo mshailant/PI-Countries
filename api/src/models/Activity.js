@@ -1,24 +1,43 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("activity", {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+  sequelize.define(
+    "activity",
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      difficulty: {
+        type: DataTypes.INTEGER,
+        validate: {
+          min: 1,
+          max: 5,
+        },
+        allowNull: false,
+      },
+      duration: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      season: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        validate: {
+          isSeasons: (value) => {
+            if (
+              !value.every((season) =>
+                ["spring", "summer", "autumn", "winter"].includes(season)
+              )
+            ) {
+              throw new Error("Invalid season");
+            }
+          },
+        },
+        allowNull: false,
+      },
     },
-    difficulty: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    duration: {
-      type: DataTypes.ENUM,
-      values: ["1", "2", "3", "4", "5"],
-      allowNull: false,
-    },
-    season: {
-      type: DataTypes.ENUM,
-      values: ["Winter", "Summer", "Autumn", "Spring"],
-      allowNull: false,
-    },
-  });
+    {
+      timestamps: false,
+    }
+  );
 };
