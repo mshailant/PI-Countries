@@ -3,7 +3,6 @@ const router = express.Router();
 const {
   getCountriesController,
   getCountryByIdController,
-  getCountriesByNameController,
 } = require("../controllers/countries.controllers");
 
 router.get("/", getCountriesController);
