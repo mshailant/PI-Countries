@@ -27,7 +27,7 @@ export const LandingPage = () => {
         <LandingH1>Henry Countries</LandingH1>
         <EnterBtnWrapper>
           <Button
-            to="/recipes"
+            to="/countries"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"
