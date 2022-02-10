@@ -6,9 +6,6 @@ import {
   NavLink,
   NavLogo,
   NavMenu,
-  NavSearch,
-  NavSearchWrap,
-  SearchInput,
 } from "./NavbarElements";
 
 const Navbar = ({ toggle }) => {
@@ -28,14 +25,6 @@ const Navbar = ({ toggle }) => {
               <NavLink to="/activity/create">Create Activity</NavLink>
             </NavItem>
           </NavMenu>
-          <NavSearch>
-            <NavSearchWrap>
-              {/* <SearchIcon>
-                <FaSearch />
-              </SearchIcon> */}
-              <SearchInput />
-            </NavSearchWrap>
-          </NavSearch>
         </NavbarContainer>
       </Nav>
     </>

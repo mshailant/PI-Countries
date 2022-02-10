@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
-  background: #2a4d5b;
+  background: #cadbe8;
   height: 80px;
   //margin-top: -80px;
   display: flex;
@@ -29,7 +29,7 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavLogo = styled(Link)`
-  color: #fff;
+  color: #2a4d5b;
   justify-content: flex-start;
   cursor: pointer;
   font-size: 1.5rem;
@@ -72,7 +72,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled(Link)`
-  color: white;
+  color: #2a4d5b;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -85,47 +85,47 @@ export const NavLink = styled(Link)`
   }
 `;
 
-export const NavSearch = styled.nav`
-  top: 50%;
-  height: 36px;
-  position: relative;
-  transform: translate(0, -50%);
+// export const NavSearch = styled.nav`
+//   top: 50%;
+//   height: 36px;
+//   position: relative;
+//   transform: translate(0, -50%);
 
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
+//   @media screen and (max-width: 768px) {
+//     display: none;
+//   }
+// `;
 
-export const NavSearchWrap = styled.div`
-  width: 220px;
-  height: 36px;
-  position: relative;
-  background: rgba(179, 191, 201, 0.15);
-  box-sizing: border-box;
-  line-height: 33px;
-  padding-left: 37px;
-  border-radius: 19px;
-`;
+// export const NavSearchWrap = styled.div`
+//   width: 220px;
+//   height: 36px;
+//   position: relative;
+//   background: rgba(179, 191, 201, 0.15);
+//   box-sizing: border-box;
+//   line-height: 33px;
+//   padding-left: 37px;
+//   border-radius: 19px;
+// `;
 
-export const SearchIcon = styled.div`
-  top: 10%;
-  left: 10px;
-  width: 16px;
-  height: 16px;
-  content: "";
-  position: absolute;
-  color: white;
-`;
+// export const SearchIcon = styled.div`
+//   top: 10%;
+//   left: 10px;
+//   width: 16px;
+//   height: 16px;
+//   content: "";
+//   position: absolute;
+//   color: white;
+// `;
 
-export const SearchInput = styled.input`
-  color: #ffffff;
-  width: 170px;
-  border: transparent;
-  font-size: 16px;
-  background: transparent;
-  outline: none;
+// export const SearchInput = styled.input`
+//   color: #ffffff;
+//   width: 170px;
+//   border: transparent;
+//   font-size: 16px;
+//   background: transparent;
+//   outline: none;
 
-  &::placeholder {
-    color: #ffffff;
-  }
-`;
+//   &::placeholder {
+//     color: #ffffff;
+//   }
+// `;
