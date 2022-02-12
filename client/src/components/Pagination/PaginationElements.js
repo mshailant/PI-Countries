@@ -24,7 +24,6 @@ export const PaginationItem = styled.li.attrs((props) => ({
   box-sizing: border-box;
   align-items: center;
   letter-spacing: 0.01071em;
-  /* border-radius: 16px; */
   line-height: 1.43;
   font-size: 13px;
   min-width: 32px;
@@ -59,9 +58,7 @@ export const PaginationItem = styled.li.attrs((props) => ({
 export const Arrow = styled.div`
   &::before {
     position: relative;
-    /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
     content: "";
-    /* By using an em scale, the arrows will size with the font */
     display: inline-block;
     width: 0.4em;
     height: 0.4em;
