@@ -11,3 +11,17 @@ export const getCountries = () => {
     });
   };
 };
+
+export const filterCountries = (payload) => {
+  return {
+    type: "FILTER_COUNTRIES",
+    payload,
+  };
+};
+
+export const sortCountries = (payload) => {
+  return {
+    type: "SORT_COUNTRIES",
+    payload,
+  };
+};
