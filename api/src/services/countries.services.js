@@ -32,7 +32,7 @@ const saveCountriesFromApi = async () => {
 const getCountries = async () => {
   try {
     const countries = await Country.findAll({
-      attributes: ["id", "name", "image", "continent"],
+      attributes: ["id", "name", "image", "continent", "population"],
     });
     return countries;
   } catch (error) {
@@ -49,6 +49,7 @@ const getCountryById = async (id) => {
         "image",
         "continent",
         "capital",
+        "subregion",
         "population",
         "area",
       ],
@@ -76,7 +77,7 @@ const getCountriesByName = async (name) => {
           [Op.iLike]: `%${name}%`,
         },
       },
-      attributes: ["id", "name", "image", "continent"],
+      attributes: ["id", "name", "image", "continent", "population"],
     });
     if (!countries) {
       throw new Error("Country not found");
