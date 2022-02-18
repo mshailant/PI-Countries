@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const CardLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const Card = styled.div`
   margin: 0 1rem;
   line-height: 2;
   /* width: 301px; */
   background: white;
+  text-decoration: none;
   border: 1px solid #cadbe8;
   margin-bottom: 30px;
   max-width: 302px;
