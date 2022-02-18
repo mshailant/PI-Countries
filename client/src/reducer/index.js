@@ -1,7 +1,9 @@
 const initialState = {
   countries: [],
   filteredCountries: [],
+  seachedCountries: [],
   country: {},
+  activity: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,10 +20,17 @@ const reducer = (state = initialState, action) => {
         country: action.payload,
       };
     case "FILTER_COUNTRIES":
-      let filtered =
+      let filtered;
+      let stateToFilter;
+      if (action.isSearch) {
+        stateToFilter = state.seachedCountries;
+      } else {
+        stateToFilter = state.countries;
+      }
+      filtered =
         action.payload === "All"
-          ? state.countries
-          : state.countries.filter((country) =>
+          ? stateToFilter
+          : stateToFilter.filter((country) =>
               country.continent
                 .toLowerCase()
                 .includes(action.payload.toLowerCase())
@@ -30,6 +39,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         filteredCountries: filtered,
       };
+
     case "SORT_COUNTRIES":
       let sortered = [];
       if (action.payload === "A-Z") {
@@ -54,6 +64,26 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         filteredCountries: sortered,
+      };
+
+    case "SEARCH_COUNTRIES":
+      console.log(action.payload);
+      return {
+        ...state,
+        filteredCountries: action.payload,
+        seachedCountries: action.payload,
+      };
+
+    case "RESET_SEARCH":
+      return {
+        ...state,
+        filteredCountries: state.countries,
+        seachedCountries: [],
+      };
+    case "CREATE_ACTIVITY":
+      return {
+        ...state,
+        activity: action.payload,
       };
     default:
       return state;
