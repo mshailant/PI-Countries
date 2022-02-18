@@ -53,19 +53,28 @@ export const Pagination = (props) => {
       <PaginationBar className="bar">
         <PaginationContainer>
           <PaginationItem
+            key={"left"}
             onClick={onPrevious}
             className={`${handleDisabled("left")}`}
           >
-            <Arrow className={`arrow left ${handleDisabled("left")}`} />
+            <Arrow
+              key={"arrowleft"}
+              className={`arrow left ${handleDisabled("left")}`}
+            />
           </PaginationItem>
 
           {paginationRange.map((pageNumber) => {
             if (pageNumber === DOTS) {
-              return <PaginationItem className="dots">&#8230;</PaginationItem>;
+              return (
+                <PaginationItem key={`${Math.random}`} className="dots">
+                  &#8230;
+                </PaginationItem>
+              );
             }
 
             return (
               <PaginationItem
+                key={pageNumber}
                 className={`${currentPage === pageNumber ? "selected" : ""}`}
                 onClick={() => {
                   onPageChange(pageNumber);
@@ -78,10 +87,14 @@ export const Pagination = (props) => {
           })}
 
           <PaginationItem
+            key={"right"}
             onClick={onNext}
             className={`${handleDisabled("right")}`}
           >
-            <Arrow className={`arrow right ${handleDisabled("right")}`} />
+            <Arrow
+              key={"arrowright"}
+              className={`arrow right ${handleDisabled("right")}`}
+            />
           </PaginationItem>
         </PaginationContainer>
       </PaginationBar>
