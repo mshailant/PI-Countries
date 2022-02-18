@@ -23,3 +23,14 @@ export const Button = styled.button`
   font-size: 1em;
   padding: 0.25em 1em;
 `;
+
+export const NoCountriesSearch = styled.h1`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #2a4d5b;
+`;
